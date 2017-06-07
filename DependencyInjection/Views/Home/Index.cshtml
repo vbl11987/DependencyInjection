@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="panel-body">
+    @if (ViewData.Count > 0){
+        <table class="table table-bordered table-condensed table-striped">
+            @foreach(var kvp in ViewData){
+                <tr><td>@kvp.Key</td><td>@kvp.Value</td></tr>
+            }
+        </table>
+    }
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr><td>Name</td><td>Price</td></tr>
+        </thead>
+        <tbody>
+            @if (Model == null) {
+                <tr><td colspan="3" class="text-center">No Model Data</td></tr>
+            } else {
+                @foreach(var p in Model){
+                    <tr>
+                        <td>@p.Name</td>
+                        <td>@string.Format("{0:C2}", p.Price)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
