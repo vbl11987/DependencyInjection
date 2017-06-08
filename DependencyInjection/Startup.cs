@@ -14,8 +14,12 @@ namespace DependencyInjection
 {
     public class Startup
     {
+        private IHostingEnvironment env;
+
         public Startup(IHostingEnvironment env)
         {
+            this.env = env;
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -30,7 +34,29 @@ namespace DependencyInjection
         public void ConfigureServices(IServiceCollection services)
         {
             TypeBroker.SetRepositoryType<AlternativeRepository>();
-            services.AddTransient<IRepository, MemoryRepository>();
+            //services.AddTransient<IRepository, MemoryRepository>();
+
+            //using the scoped life cicle, using this the same MemoryRepository is used for any class that need a 
+            //implementation of it in the same scope
+            services.AddScoped<IRepository, MemoryRepository>();
+
+            //using singleton life cycle, a single object is used to resolve all the dependencies for a given
+            //service and it's reused for any subsquent need of dependecies.
+            services.AddSingleton<IRepository, MemoryRepository>();
+
+            //Using a Factory function
+            services.AddTransient<IRepository>(provider => {
+                if(env.IsDevelopment()) {
+                    var x = provider.GetService<MemoryRepository>();
+                    return x;
+                } else {
+                    return new AlternativeRepository();
+                }
+            });
+            //MemoryReposotry have dependencies from IModelStorage, so is required to add a Transient
+            //to resolve any dependencias that it haves.
+            services.AddTransient<MemoryRepository>();
+
             services.AddTransient<IModelStorage, DictionaryStorage>();
             services.AddTransient<ProductTotalizer>();
             // Add framework services.
