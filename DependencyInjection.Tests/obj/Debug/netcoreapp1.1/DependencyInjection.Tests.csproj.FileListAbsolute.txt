@@ -1,0 +1,13 @@
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/xunit.runner.utility.netstandard15.dll
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/xunit.runner.reporters.netstandard15.dll
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/DependencyInjection.Tests.deps.json
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/DependencyInjection.Tests.runtimeconfig.json
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/DependencyInjection.Tests.runtimeconfig.dev.json
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/DependencyInjection.Tests.dll
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/DependencyInjection.Tests.pdb
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/DependencyInjection.dll
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/bin/Debug/netcoreapp1.1/DependencyInjection.pdb
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/obj/Debug/netcoreapp1.1/DependencyInjection.Tests.AssemblyInfo.cs
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/obj/Debug/netcoreapp1.1/DependencyInjection.Tests.dll
+/home/boris/dotnet/DependencyInjection/DependencyInjection.Tests/obj/Debug/netcoreapp1.1/DependencyInjection.Tests.pdb

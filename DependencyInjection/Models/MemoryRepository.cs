@@ -4,10 +4,15 @@ namespace DependencyInjection.Models
 {
     public class MemoryRepository : IRepository
     {
-        private Dictionary<string, Product> products;
+        private IModelStorage storage;
 
-        public MemoryRepository(){
-            products = new Dictionary<string, Product>();
+        private string guid = System.Guid.NewGuid().ToString();
+
+
+        //private Dictionary<string, Product> products;
+
+        public MemoryRepository(IModelStorage modelStore){
+            storage = modelStore;
 
             new List<Product> {
                 new Product { Name = "Bate", Price = 15.50M },
@@ -16,12 +21,16 @@ namespace DependencyInjection.Models
             }.ForEach(p => AddProduct(p));
         }
 
-        public IEnumerable<Product> Products => products.Values;
+        public IEnumerable<Product> Products => storage.Items;
 
-        public Product this[string name] => products[name];
+        public Product this[string name] => storage[name];
 
-        public void AddProduct(Product product) => products[product.Name] = product;
+        public void AddProduct(Product product) => storage[product.Name] = product;
 
-        public void DeleteProduct(Product product) => products.Remove(product.Name);  
+        public void DeleteProduct(Product product) => storage.RemoveItem(product.Name);
+
+        public override string ToString() {
+            return guid;
+        }  
     }
 }
